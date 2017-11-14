@@ -18,7 +18,6 @@ s.onload = function() {
 var port = chrome.runtime.connect();
 
 window.addEventListener("message", function(event) {
-  // We only accept messages from ourselves
   if (event.source != window)
     return;
 
