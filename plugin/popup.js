@@ -24,8 +24,6 @@ function getCurrentTabUrl(callback) {
     // exactly one tab.
     var tab = tabs[0];
 
-    console.log("Current tab: " + tab);
-
     // A tab is a plain object that provides information about the tab.
     // See https://developer.chrome.com/extensions/tabs#type-Tab
     var url = tab.url;
@@ -61,10 +59,6 @@ function changeBackgroundColor(color) {
   // into a page. Since we omit the optional first argument "tabId", the script
   // is inserted into the active tab of the current window, which serves as the
   // default.
-
-  web3.eth.getBlock("latest", function(e, d) {
-    window.postMessage({type:"FROM_PAGE", currentBlockNumber:d.number}, "*");
-  });
 
   chrome.tabs.executeScript({
     code: script

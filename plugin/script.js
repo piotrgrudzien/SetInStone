@@ -1,26 +1,21 @@
 //web3 = new Web3(web3.currentProvider);
 console.log("Using Metamask - wait 1s to avoid race condition");
 setTimeout(function() {
-    run();
+    //run();
 }, 1000);
 
-var url = "Ultimate test URL";
-var snippet = "Ultimate test snippet";
+//var url = "Sunday night test URL";
+//var snippet = "Sunday night test snippet";
 var myaddr = "0xb4fA10a8f8262a5abf80E94D63385d35eF4f0DE4";
 
-function run() {
+function run(url, snippet) {
 
     var SetInStone = web3.eth.contract(SetInStone_abi).at(SetInStone_addr);
 
-    // event watching still doesn't work
-    console.log("Watching for event " + SetInStone.ChallengeCreated + " on contract " + SetInStone);
-    SetInStone.ChallengeCreated().watch(function (err, res) {
-        console.log(JSON.stringify(res));
-    });
-
-    check(SetInStone);
+    //check(SetInStone);
 
     console.log("Sending transaction from account " + myaddr);
+    console.log("URL " + url + " and snippet " + snippet);
 
     SetInStone.createChallenge.sendTransaction(url, snippet, {from: myaddr}, function (err, tr_hash) {
         if(err) {

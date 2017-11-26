@@ -14,7 +14,6 @@ s.onload = function() {
 };
 (document.head || document.documentElement).appendChild(s);
 
-
 var port = chrome.runtime.connect();
 
 window.addEventListener("message", function(event) {
@@ -22,6 +21,6 @@ window.addEventListener("message", function(event) {
     return;
 
   if (event.data.type && (event.data.type == "FROM_PAGE")) {
-    console.log("Current block number: " + event.data.currentBlockNumber);
+    console.log("Sending challenge from url: " + url + ", scenario: " + scenario + ", snippet: " + snippet);
   }
 }, false);
