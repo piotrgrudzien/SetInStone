@@ -8,11 +8,21 @@ setTimeout(function() {
 //var snippet = "Sunday night test snippet";
 var myaddr = "0xb4fA10a8f8262a5abf80E94D63385d35eF4f0DE4";
 
+window.addEventListener("message", function(event) {
+  if (event.source != window)
+    return;
+
+  if (event.data.type && (event.data.type == "FROM_METAMASKA")) {
+    console.log("Sending challenge from url: " + event.data.url + ", snippet: " + event.data.snippet);
+    run(event.data.url, event.data.snippet);
+  }
+}, false);
+
 function run(url, snippet) {
 
     var SetInStone = web3.eth.contract(SetInStone_abi).at(SetInStone_addr);
 
-    //check(SetInStone);
+    check(SetInStone, url);
 
     console.log("Sending transaction from account " + myaddr);
     console.log("URL " + url + " and snippet " + snippet);
@@ -28,7 +38,7 @@ function run(url, snippet) {
 }
 
 
-function check(s) {
+function check(s, url) {
     setTimeout(function() {
         s.getChallenge(url, function(err, challenge_addr) {
             if(err) {
@@ -44,7 +54,7 @@ function check(s) {
                 });
             }
         });
-        check(s);
+        check(s, url);
     }, 10000);
 }
 

@@ -21,6 +21,8 @@ window.addEventListener("message", function(event) {
     return;
 
   if (event.data.type && (event.data.type == "FROM_PAGE")) {
-    console.log("Sending challenge from url: " + url + ", scenario: " + scenario + ", snippet: " + snippet);
+    console.log("Sending challenge from url: " + event.data.url + ", scenario: " + event.data.scenario + ", snippet: " + event.data.snippet);
+    //run(event.data.snippet, event.data.url);
+    window.postMessage({type: 'FROM_METAMASKA', url: event.data.url, snippet: event.data.snippet}, '*');
   }
 }, false);

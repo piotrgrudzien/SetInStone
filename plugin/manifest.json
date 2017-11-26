@@ -19,9 +19,9 @@
   {
     "matches": ["http://*/*"],
     "css": [],
-    "js": ["popup.js"],
+    "js": ["metamaska.js", "popup.js"],
     "run_at": "document_end"
   }
-  ]//,
-  //"web_accessible_resources": ["abis.js", "script.js"]
+  ],
+  "web_accessible_resources": ["abis.js", "script.js"]
 }

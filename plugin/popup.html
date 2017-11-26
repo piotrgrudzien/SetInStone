@@ -34,17 +34,21 @@
 </head>
 
 <body>
-<h1>Background Color Changer</h1>
-<div id="container">
-  <span>Choose a color</span>
-  <select id="dropdown">
+<h1>Create challenge</h1>
+<div id="scenario-container">
+  <span>Choose scenario:</span>
+  <select id="scenario">
     <option selected disabled hidden value=''></option>
-    <option value="white">White</option>
-    <option value="pink">Pink</option>
-    <option value="green">Green</option>
-    <option value="yellow">Yellow</option>
-    <option value="black">Black</option>
+    <option value="truefalse">True/False</option>
+    <option value="number">Number</option>
   </select>
+</div>
+<div id="snippet-container">
+  <span>Paste text snippet:</span>
+  <input id="snippet"/>
+</div>
+<div id="submit-container">
+  <button id="submit">Submit</button>
 </div>
 </body>
 </html>
